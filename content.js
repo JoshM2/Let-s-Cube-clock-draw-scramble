@@ -10,13 +10,19 @@ function drawScramble(scramble, element) {
         // checks if scramble-display element is loaded, if it is it sets the scramble to the current scramble
         let drawElement = document.querySelector("scramble-display");
         if (drawElement) {
-            // makes sure that it is a clock scramble
-            if (scramble.includes("y2")){
+            drawElement.style.display = "block";
+            // hides the draw scramle if the event isn't clock
+            if (document.querySelector("#change-event-select").innerHTML != "Clock") {
+                drawElement.style.display = "none";
+
+            }
+            // makes sure that the scramble has loaded
+            else if (scramble.includes("y2")){
                 drawElement.setAttribute("scramble", scramble);
             }
         }
         // if the scramble display element isn't loaded, it is created and inserted after the scramble
-        else {
+        else if (document.querySelector("#change-event-select").innerHTML == "Clock") {
             drawElement = document.createElement("scramble-display");
             drawElement.setAttribute("event", "clock");
             drawElement.setAttribute("scramble", scramble);
@@ -45,4 +51,3 @@ var interval = setInterval(function() {
 
     }
 }, 100);
-  
