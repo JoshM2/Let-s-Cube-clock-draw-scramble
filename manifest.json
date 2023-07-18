@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+   
+    "name": "Let's Cube clock draw scramble",
+    "version": "1.0.0",
+    "description": "Adds a draw scramble for Let's Cube clock scrambles.",
+   
+    "content_scripts": [{
+        "js": ["content.js"],
+        "matches": ["https://letscube.net/*"]
+    }]
+} 
